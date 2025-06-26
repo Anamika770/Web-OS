@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.bg-wallpaper {
+  background-image: url('/src/assets/icons/wallpaper.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
