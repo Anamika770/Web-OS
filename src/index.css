@@ -11,3 +11,19 @@ html, body, #root {
   height: 100%;
   margin: 0;
 }
+.icon-large {
+  width: 100px;
+  height: 100px;
+}
+
+.icon-medium {
+  width: 70px;
+  height: 70px;
+}
+
+.icon-small {
+  width: 40px;
+  height: 40px;
+}
+
+

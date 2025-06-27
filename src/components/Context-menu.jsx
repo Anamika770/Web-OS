@@ -4,7 +4,11 @@ export default function ContextMenu({ x, y, visible, options }) {
 
   return (
     <ul
-      className="absolute bg-white shadow-lg rounded p-2 z-50 border text-sm"
+      className={`absolute bg-white shadow-md rounded-md transition-opacity duration-150 ease-in-out ${
+        visible
+          ? "opacity-100 scale-100"
+          : "opacity-0 scale-95 pointer-events-none"
+      }`}
       style={{ top: y, left: x }}
     >
       {options.map((option, index) => (
