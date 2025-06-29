@@ -1,4 +1,6 @@
+import { menuOptions } from "../data/DesktopContextMenu";
 import ContextMenu from "./Context-menu";
+
 
 function DesktopArea({menuVisible, menuPosition, setMenuPosition, setMenuVisible,children}) {
 
@@ -12,35 +14,13 @@ function DesktopArea({menuVisible, menuPosition, setMenuPosition, setMenuVisible
     setMenuVisible(false);
   };
 
-  const menuOptions = [
-    {
-      label: "New Folder",
-      onClick: () => {
-        alert("Creating a new folder...");
-        hideMenu();
-      },
-    },
-    {
-      label: "Refresh",
-      onClick: () => {
-        alert("Refreshing...");
-        hideMenu();
-      },
-    },
-    {
-      label: "Paste",
-      onClick: () => {
-        alert("Pasting...");
-        hideMenu();
-      },
-    },
-  ];
+  
 
   return (
     <div
       onContextMenu={handleRightClick}
       onClick={hideMenu}
-      className="w-full h-screen bg-blue-100 relative"
+      className="w-full bg-blue-100 h-[100vh] overflow-hidden"
     >
       {/* Your desktop content */}
       <ContextMenu

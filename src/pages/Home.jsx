@@ -1,16 +1,38 @@
-
-import Desktop from '../components/Desktop';
-import Taskbar from '../components/Taskbar';
+import { useState } from "react";
+import Desktop from "../components/Desktop";
 
 const Home = () => {
   // document.designMode = "on";
   // document.getElementById("myP").contentEditable = "true";
-  return (
-    <div className='flex flex-col justify-between h-[100vh] overflow-hidden'>
-      <Desktop/>
-      <Taskbar />
-    </div>
-  )
-}
+  const [isOpen, setIsOpen] = useState(true);
+  const [windows, setWindows] = useState([]);
 
-export default Home
+  const openWindow = (appName) => {
+    setWindows((prev) => [...prev, { id: Date.now(), app: appName }]);
+  };
+
+  const closeWindow = (id) => {
+    setWindows((prev) => prev.filter((win) => win.id !== id));
+  };
+
+  return (
+    <div className="flex flex-col justify-between h-[94vh]">
+      <Desktop onOpen={openWindow}>
+        <div className="desktop bg-blue-200 h-screen p-4">
+          {isOpen && (
+            <Window
+              title="My App"
+              onClose={() => closeWindow(win.id)}
+              onMinimize={() => console.log(`${win.app} minimized`)}
+              onMaximize={() => console.log(`${win.app} maximized`)}
+            >
+              <p>Anamika</p>
+            </Window>
+          )}
+        </div>
+      </Desktop>
+    </div>
+  );
+};
+
+export default Home;

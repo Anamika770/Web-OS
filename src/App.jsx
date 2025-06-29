@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import DesktopArea from "./components/DesktopArea";
+import Taskbar from './components/Taskbar';
+
 
 const App = () => {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -15,6 +17,8 @@ const App = () => {
         setMenuVisible={setMenuVisible}
       >
         <Outlet />
+      <Taskbar />
+
       </DesktopArea>
     </>
   );
